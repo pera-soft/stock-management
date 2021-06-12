@@ -14,4 +14,8 @@ public class Constants {
         public static final String PRODUCT_MAPPING = BASE_MAPPING + "/products";
     }
 
+    public static final class MAPPER {
+        public static final String COMPONENT_MODEL = "spring";
+    }
+
 }
