@@ -1,6 +1,5 @@
 package io.github.oguzhancevik.stockmanagement.handler;
 
-import io.github.oguzhancevik.stockmanagement.model.exception.BusinessValidationException;
 import io.github.oguzhancevik.stockmanagement.model.exception.ExceptionResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,9 +10,9 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {BusinessValidationException.class})
+    @ExceptionHandler(value = {RuntimeException.class})
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
         return handleExceptionInternal(ex, new ExceptionResponse(ex.getMessage()), new HttpHeaders(), HttpStatus.CONFLICT, request);
     }

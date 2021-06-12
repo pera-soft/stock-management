@@ -10,7 +10,7 @@ public class EntityFactory {
 
     public Category category() {
         Category category = new Category();
-        category.setId(1l);
+        category.setId(1L);
         category.setCreatedDate(new Date());
         category.setName("Snacks");
         return category;

@@ -1,5 +1,8 @@
 package io.github.oguzhancevik.stockmanagement.base;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import io.github.oguzhancevik.stockmanagement.factory.DTOFactory;
 import io.github.oguzhancevik.stockmanagement.factory.EntityFactory;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,6 +22,11 @@ public class BaseUnitTest {
     public void beforeAll() {
         entityFactory = new EntityFactory();
         dtoFactory = new DTOFactory();
+    }
+
+    public String toJson(Object object) throws JsonProcessingException {
+        ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        return objectWriter.writeValueAsString(object);
     }
 
 }
