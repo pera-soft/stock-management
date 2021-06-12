@@ -2,6 +2,7 @@ package io.github.oguzhancevik.stockmanagement.controller;
 
 import io.github.oguzhancevik.stockmanagement.base.BaseUnitTest;
 import io.github.oguzhancevik.stockmanagement.model.request.CategoryRequest;
+import io.github.oguzhancevik.stockmanagement.service.CategoryCommandService;
 import io.github.oguzhancevik.stockmanagement.service.CategoryQueryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,12 +19,13 @@ import static org.mockito.Mockito.when;
 class CategoryControllerTest extends BaseUnitTest {
 
     private MockMvc mockMvc;
-    private CategoryQueryService categoryQueryService;
+    private CategoryCommandService commandService;
 
     @BeforeEach
     public void setUp() {
-        categoryQueryService = mock(CategoryQueryService.class);
-        CategoryController controller = new CategoryController(categoryQueryService);
+        CategoryQueryService queryService = mock(CategoryQueryService.class);
+        commandService = mock(CategoryCommandService.class);
+        CategoryController controller = new CategoryController(queryService, commandService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
@@ -48,7 +50,7 @@ class CategoryControllerTest extends BaseUnitTest {
     @Test
     public void create() throws Exception {
         CategoryRequest request = dtoFactory.categoryRequest();
-        when(categoryQueryService.create(request)).thenReturn(dtoFactory.category());
+        when(commandService.create(request)).thenReturn(dtoFactory.category());
         String json = toJson(request);
         mockMvc.perform(MockMvcRequestBuilders
                 .post(CATEGORY_MAPPING)
@@ -61,7 +63,7 @@ class CategoryControllerTest extends BaseUnitTest {
     @Test
     public void update() throws Exception {
         CategoryRequest request = dtoFactory.categoryRequest();
-        when(categoryQueryService.create(request)).thenReturn(dtoFactory.category());
+        when(commandService.create(request)).thenReturn(dtoFactory.category());
         String json = toJson(request);
         mockMvc.perform(MockMvcRequestBuilders
                 .put(CATEGORY_MAPPING + "/" + 1L)
