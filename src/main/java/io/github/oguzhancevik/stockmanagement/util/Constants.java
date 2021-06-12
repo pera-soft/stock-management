@@ -2,6 +2,11 @@ package io.github.oguzhancevik.stockmanagement.util;
 
 public class Constants {
 
+    public static final class ENTITY {
+        public static final String SEQUENCE_GENERATOR = "sm_sequence_generator";
+        public static final String SEQUENCE_NAME = "sm_sequence";
+    }
+
     public static final class API {
         public static final String BASE_MAPPING = "/api";
         public static final String CATEGORY_MAPPING = BASE_MAPPING + "/categories";

@@ -22,6 +22,6 @@ public class SubCategory extends BaseEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "subCategory")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<SubCategory> subCategories = new HashSet<>();
+    private Set<Product> products = new HashSet<>();
 
 }
