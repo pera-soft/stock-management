@@ -1,2 +1,18 @@
 server:
   port: 8080
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    username: dbadmin
+    password: 123
+    data: classpath:/data-h2.sql # initial datasource
+  h2:
+    console:
+      enabled: true
