@@ -16,25 +16,25 @@ import static io.github.oguzhancevik.stockmanagement.model.exception.BusinessVal
 @Service
 public class CategoryCommandServiceImpl implements CategoryCommandService {
 
-    private final CategoryRepository categoryRepository;
+    private final CategoryRepository repository;
 
     @Autowired
-    public CategoryCommandServiceImpl(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
+    public CategoryCommandServiceImpl(CategoryRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     @Transactional
     public CategoryDTO create(CategoryRequest request) {
         Category category = new Category(request.getName());
-        categoryRepository.save(category);
+        repository.save(category);
         return BaseMapper.INSTANCE.toDTO(category);
     }
 
     @Override
     @Transactional
     public CategoryDTO update(Long categoryId, CategoryRequest request) {
-        Category category = categoryRepository.findById(categoryId)
+        Category category = repository.findById(categoryId)
                 .orElseThrow(() -> new BusinessValidationException(CATEGORY_NOT_FOUND));
         category.setName(request.getName());
         return BaseMapper.INSTANCE.toDTO(category);
@@ -43,7 +43,7 @@ public class CategoryCommandServiceImpl implements CategoryCommandService {
     @Override
     @Transactional
     public void deleteById(Long categoryId) {
-        categoryRepository.deleteById(categoryId);
+        repository.deleteById(categoryId);
     }
 
 }

@@ -17,24 +17,24 @@ import static io.github.oguzhancevik.stockmanagement.model.exception.BusinessVal
 @Service
 public class CategoryQueryServiceImpl implements CategoryQueryService {
 
-    private final CategoryRepository categoryRepository;
+    private final CategoryRepository repository;
 
     @Autowired
-    public CategoryQueryServiceImpl(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
+    public CategoryQueryServiceImpl(CategoryRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<CategoryDTO> findCategories() {
-        List<Category> list = categoryRepository.findAll();
-        return BaseMapper.INSTANCE.toDTO(list);
+        List<Category> categories = repository.findAll();
+        return BaseMapper.INSTANCE.toDTO(categories);
     }
 
     @Override
     @Transactional(readOnly = true)
     public CategoryDTO findById(Long categoryId) {
-        Category category = categoryRepository.findById(categoryId)
+        Category category = repository.findById(categoryId)
                 .orElseThrow(() -> new BusinessValidationException(CATEGORY_NOT_FOUND));
         return BaseMapper.INSTANCE.toDTO(category);
     }
