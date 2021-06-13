@@ -61,5 +61,8 @@
 ### Postman Collection
 [Clicke Here](static/stock-management.postman_collection.json)
 
+### Swagger UI
+http://localhost:8080/swagger-ui/
+
 ### License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
