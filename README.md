@@ -22,22 +22,22 @@
 * Factory Pattern
 * CQRS Pattern
 
-### Build & Run
+### Build & Run :dart:
 
-#### Docker
+###### Docker
 
 ``` docker-compose up -d --build ```
 
-#### Backend
+###### Backend
 
 ``` mvn clean install ```
 
 ``` mvn --projects io.github.oguzhancevik:stock-management spring-boot:run ```
 
-### Design
+### Design :art:
 ![DesignPhoto](static/chart.png)
 
-### APIs
+### APIs :memo:
 | API                                              | Method | Description                         |
 |--------------------------------------------------|--------|-------------------------------------|
 | /api/categories                                  | GET    | Returns categories                  |
@@ -58,11 +58,11 @@
 | /api/products/search/price/?min=200&max=500      | GET    | Returns products by price interval  |
 
 
-### Postman Collection
+### Postman Collection :pushpin:
 [Clicke Here](static/stock-management.postman_collection.json)
 
-### Swagger UI
+### Swagger UI :gift:
 http://localhost:8080/swagger-ui/
 
-### License
+### License :key:
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.

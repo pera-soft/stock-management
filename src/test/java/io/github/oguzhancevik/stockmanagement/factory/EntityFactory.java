@@ -6,9 +6,9 @@ import io.github.oguzhancevik.stockmanagement.model.entity.SubCategory;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 public class EntityFactory {
 
@@ -21,7 +21,7 @@ public class EntityFactory {
     }
 
     public List<Category> categories() {
-        return Arrays.asList(category());
+        return Collections.singletonList(category());
     }
 
     public SubCategory subCategory() {
@@ -33,7 +33,7 @@ public class EntityFactory {
     }
 
     public List<SubCategory> subCategories() {
-        return Arrays.asList(subCategory());
+        return Collections.singletonList(subCategory());
     }
 
     public Product product() {
@@ -46,7 +46,7 @@ public class EntityFactory {
     }
 
     public List<Product> products() {
-        return Arrays.asList(product());
+        return Collections.singletonList(product());
     }
 
 }
