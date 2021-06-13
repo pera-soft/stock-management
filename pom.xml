@@ -19,7 +19,7 @@
 
     <groupId>io.github.oguzhancevik</groupId>
     <artifactId>stock-management</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>stock-management</name>
     <description>Stock Management</description>
 

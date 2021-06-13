@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  app:
+    image: 'stock-management:latest'
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    container_name: stock-management
