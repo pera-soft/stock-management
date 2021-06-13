@@ -1,7 +1,9 @@
 package io.github.oguzhancevik.stockmanagement.util;
 
 import io.github.oguzhancevik.stockmanagement.model.entity.Category;
+import io.github.oguzhancevik.stockmanagement.model.entity.SubCategory;
 import io.github.oguzhancevik.stockmanagement.model.response.CategoryDTO;
+import io.github.oguzhancevik.stockmanagement.model.response.SubCategoryDTO;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValuePropertyMappingStrategy;
@@ -20,5 +22,8 @@ public interface BaseMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     List<CategoryDTO> toDTO(List<Category> categories);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    SubCategoryDTO toDTO(SubCategory subCategory);
 
 }

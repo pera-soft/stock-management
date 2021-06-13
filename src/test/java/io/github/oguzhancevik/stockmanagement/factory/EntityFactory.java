@@ -1,6 +1,7 @@
 package io.github.oguzhancevik.stockmanagement.factory;
 
 import io.github.oguzhancevik.stockmanagement.model.entity.Category;
+import io.github.oguzhancevik.stockmanagement.model.entity.SubCategory;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -18,6 +19,18 @@ public class EntityFactory {
 
     public List<Category> categories() {
         return Arrays.asList(category());
+    }
+
+    public SubCategory subCategory() {
+        SubCategory subCategory = new SubCategory();
+        subCategory.setId(15L);
+        subCategory.setName("Chips");
+        subCategory.setCategory(category());
+        return subCategory;
+    }
+
+    public List<SubCategory> subCategories() {
+        return Arrays.asList(subCategory());
     }
 
 }

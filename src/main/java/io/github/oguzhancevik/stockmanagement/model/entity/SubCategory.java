@@ -3,6 +3,7 @@ package io.github.oguzhancevik.stockmanagement.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.github.oguzhancevik.stockmanagement.model.entity.base.BaseEntity;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -13,7 +14,12 @@ import java.util.Set;
 @Entity
 @Table
 @Data
+@NoArgsConstructor
 public class SubCategory extends BaseEntity {
+
+    public SubCategory(String name) {
+        super.setName(name);
+    }
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)

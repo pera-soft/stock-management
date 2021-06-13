@@ -2,7 +2,8 @@ package io.github.oguzhancevik.stockmanagement.model.exception;
 
 public enum BusinessValidationRule {
 
-    CATEGORY_NOT_FOUND("Category Not Found");
+    CATEGORY_NOT_FOUND("Category Not Found"),
+    SUB_CATEGORY_NOT_FOUND("Sub Category Not Found");
 
     private final String message;
 
