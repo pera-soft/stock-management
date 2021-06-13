@@ -1,5 +1,7 @@
 # Stock Management :moneybag:
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0f9589d4e3c4804aa192cdf6bc2c3a9)](https://app.codacy.com/gh/oguzhancevik/stock-management?utm_source=github.com&utm_medium=referral&utm_content=oguzhancevik/stock-management&utm_campaign=Badge_Grade_Settings)
+
 ``` 
   The application consists of 3 parts. Category, Subcategory and Product. 
 * Each category has a name and one or more subcategories.
