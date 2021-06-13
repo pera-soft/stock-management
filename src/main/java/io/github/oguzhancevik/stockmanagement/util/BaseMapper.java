@@ -1,13 +1,13 @@
 package io.github.oguzhancevik.stockmanagement.util;
 
 import io.github.oguzhancevik.stockmanagement.model.entity.Category;
+import io.github.oguzhancevik.stockmanagement.model.entity.Product;
 import io.github.oguzhancevik.stockmanagement.model.entity.SubCategory;
+import io.github.oguzhancevik.stockmanagement.model.request.ProductRequest;
 import io.github.oguzhancevik.stockmanagement.model.response.CategoryDTO;
+import io.github.oguzhancevik.stockmanagement.model.response.ProductDTO;
 import io.github.oguzhancevik.stockmanagement.model.response.SubCategoryDTO;
-import org.mapstruct.BeanMapping;
-import org.mapstruct.Mapper;
-import org.mapstruct.NullValuePropertyMappingStrategy;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -25,5 +25,11 @@ public interface BaseMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     SubCategoryDTO toDTO(SubCategory subCategory);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    ProductDTO toDTO(Product product);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void fromRequest(ProductRequest request, @MappingTarget Product product);
 
 }

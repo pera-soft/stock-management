@@ -80,9 +80,9 @@ class SubCategoryCommandServiceMockTest extends BaseUnitTest {
 
     @Test
     public void deleteById_shouldThrowExceptionWhenSubCategoryNotFound() {
-        Long categoryId = 0L;
-        doThrow(new EmptyResultDataAccessException(categoryId.intValue())).when(subCategoryRepository).deleteById(categoryId);
-        assertThrows(BusinessValidationException.class, () -> commandService.update(anyLong(), dtoFactory.subCategoryRequest()));
+        Long subCategoryId = 0L;
+        doThrow(new EmptyResultDataAccessException(subCategoryId.intValue())).when(subCategoryRepository).deleteById(subCategoryId);
+        assertThrows(EmptyResultDataAccessException.class, () -> commandService.deleteById(subCategoryId));
     }
 
 }

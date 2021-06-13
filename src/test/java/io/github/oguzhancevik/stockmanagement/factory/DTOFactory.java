@@ -1,10 +1,13 @@
 package io.github.oguzhancevik.stockmanagement.factory;
 
 import io.github.oguzhancevik.stockmanagement.model.request.CategoryRequest;
+import io.github.oguzhancevik.stockmanagement.model.request.ProductRequest;
 import io.github.oguzhancevik.stockmanagement.model.request.SubCategoryRequest;
 import io.github.oguzhancevik.stockmanagement.model.response.CategoryDTO;
+import io.github.oguzhancevik.stockmanagement.model.response.ProductDTO;
 import io.github.oguzhancevik.stockmanagement.model.response.SubCategoryDTO;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class DTOFactory {
@@ -31,6 +34,24 @@ public class DTOFactory {
         subCategory.setName("Chips");
         subCategory.setCategory(category());
         return subCategory;
+    }
+
+    public ProductRequest productRequest() {
+        ProductRequest request = new ProductRequest();
+        request.setName("Pringles Original");
+        request.setPrice(BigDecimal.valueOf(16.29));
+        request.setStockAmount(375L);
+        request.setSubCategoryId(subCategory().getId());
+        return request;
+    }
+
+    public ProductDTO product() {
+        ProductDTO product = new ProductDTO();
+        product.setName("Pringles Original");
+        product.setPrice(BigDecimal.valueOf(16.29));
+        product.setStockAmount(375L);
+        product.setSubCategory(subCategory());
+        return product;
     }
 
 }

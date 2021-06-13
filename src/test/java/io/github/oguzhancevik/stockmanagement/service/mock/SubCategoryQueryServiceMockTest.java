@@ -45,7 +45,7 @@ class SubCategoryQueryServiceMockTest extends BaseUnitTest {
     }
 
     @Test
-    public void findById_shouldThrowExceptionWhenCategoryNotFound() {
+    public void findById_shouldThrowExceptionWhenSubCategoryNotFound() {
         assertThrows(BusinessValidationException.class, () -> queryService.findById(anyLong()));
     }
 
