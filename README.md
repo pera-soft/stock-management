@@ -59,7 +59,7 @@
 
 
 ### Postman Collection :pushpin:
-[Clicke Here](static/stock-management.postman_collection.json)
+[Click Here](static/stock-management.postman_collection.json)
 
 ### Swagger UI :gift:
 http://localhost:8080/swagger-ui/
