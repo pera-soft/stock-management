@@ -18,4 +18,8 @@ public class Constants {
         public static final String COMPONENT_MODEL = "spring";
     }
 
+    public static final class SWAGGER {
+        public static final String PATH_REGEX = "/api.*";
+    }
+
 }

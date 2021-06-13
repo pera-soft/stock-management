@@ -1,5 +1,6 @@
 package io.github.oguzhancevik.stockmanagement.config;
 
+import io.github.oguzhancevik.stockmanagement.util.Constants;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -15,10 +16,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.regex("/api.*"))
+                .paths(PathSelectors.regex(Constants.SWAGGER.PATH_REGEX))
                 .build();
     }
-
-
-
 }
