@@ -2,6 +2,7 @@ package io.github.oguzhancevik.stockmanagement.factory;
 
 import io.github.oguzhancevik.stockmanagement.model.request.CategoryRequest;
 import io.github.oguzhancevik.stockmanagement.model.request.ProductRequest;
+import io.github.oguzhancevik.stockmanagement.model.request.ShoppingRequest;
 import io.github.oguzhancevik.stockmanagement.model.request.SubCategoryRequest;
 import io.github.oguzhancevik.stockmanagement.model.response.CategoryDTO;
 import io.github.oguzhancevik.stockmanagement.model.response.ProductDTO;
@@ -47,11 +48,16 @@ public class DTOFactory {
 
     public ProductDTO product() {
         ProductDTO product = new ProductDTO();
+        product.setId(50L);
         product.setName("Pringles Original");
         product.setPrice(BigDecimal.valueOf(16.29));
         product.setStockAmount(375L);
         product.setSubCategory(subCategory());
         return product;
+    }
+
+    public ShoppingRequest shoppingRequest() {
+        return new ShoppingRequest(product().getId());
     }
 
 }

@@ -12,6 +12,7 @@ public class Constants {
         public static final String CATEGORY_MAPPING = BASE_MAPPING + "/categories";
         public static final String SUB_CATEGORY_MAPPING = BASE_MAPPING + "/subcategories";
         public static final String PRODUCT_MAPPING = BASE_MAPPING + "/products";
+        public static final String SHOPPING_CART_MAPPING = BASE_MAPPING + "/shopping-cart";
     }
 
     public static final class MAPPER {
