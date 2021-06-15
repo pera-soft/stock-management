@@ -31,8 +31,8 @@ public class ProductCommandServiceImpl implements ProductCommandService {
     @Override
     @Transactional
     public ProductDTO create(ProductRequest request) {
-        Product product = new Product(request.getName(), request.getPrice(), request.getStockAmount());
-        SubCategory subCategory = subCategoryRepository.findById(request.getSubCategoryId())
+        var product = new Product(request.getName(), request.getPrice(), request.getStockAmount());
+        var subCategory = subCategoryRepository.findById(request.getSubCategoryId())
                 .orElseThrow(() -> new BusinessValidationException(SUB_CATEGORY_NOT_FOUND));
         product.setSubCategory(subCategory);
         productRepository.save(product);

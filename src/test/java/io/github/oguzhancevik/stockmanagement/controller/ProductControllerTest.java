@@ -25,9 +25,9 @@ class ProductControllerTest extends BaseUnitTest {
 
     @BeforeEach
     public void setUp() {
-        ProductQueryService queryService = mock(ProductQueryService.class);
+        var queryService = mock(ProductQueryService.class);
         commandService = mock(ProductCommandService.class);
-        ProductController controller = new ProductController(queryService, commandService);
+        var controller = new ProductController(queryService, commandService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 

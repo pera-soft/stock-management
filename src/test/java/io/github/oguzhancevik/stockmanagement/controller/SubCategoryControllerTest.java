@@ -25,7 +25,7 @@ class SubCategoryControllerTest extends BaseUnitTest {
     public void setUp() {
         SubCategoryQueryService queryService = mock(SubCategoryQueryService.class);
         commandService = mock(SubCategoryCommandService.class);
-        SubCategoryController controller = new SubCategoryController(queryService, commandService);
+        var controller = new SubCategoryController(queryService, commandService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 

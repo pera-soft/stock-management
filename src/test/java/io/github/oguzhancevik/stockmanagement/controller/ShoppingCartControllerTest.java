@@ -20,8 +20,8 @@ public class ShoppingCartControllerTest extends BaseUnitTest {
 
     @BeforeEach
     public void setUp() {
-        ShoppingCartCommandService commandService = mock(ShoppingCartCommandService.class);
-        ShoppingCartController controller = new ShoppingCartController(commandService);
+        var commandService = mock(ShoppingCartCommandService.class);
+        var controller = new ShoppingCartController(commandService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 

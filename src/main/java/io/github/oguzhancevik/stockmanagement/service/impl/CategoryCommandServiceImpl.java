@@ -26,7 +26,7 @@ public class CategoryCommandServiceImpl implements CategoryCommandService {
     @Override
     @Transactional
     public CategoryDTO create(CategoryRequest request) {
-        Category category = new Category(request.getName());
+        var category = new Category(request.getName());
         repository.save(category);
         return BaseMapper.INSTANCE.toDTO(category);
     }

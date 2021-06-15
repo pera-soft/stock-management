@@ -13,7 +13,7 @@ import java.util.List;
 public class EntityFactory {
 
     public Category category() {
-        Category category = new Category();
+        var category = new Category();
         category.setId(1L);
         category.setCreatedDate(new Date());
         category.setName("Snacks");
@@ -25,7 +25,7 @@ public class EntityFactory {
     }
 
     public SubCategory subCategory() {
-        SubCategory subCategory = new SubCategory();
+        var subCategory = new SubCategory();
         subCategory.setId(15L);
         subCategory.setName("Chips");
         subCategory.setCategory(category());
@@ -37,7 +37,7 @@ public class EntityFactory {
     }
 
     public Product product() {
-        Product product = new Product();
+        var product = new Product();
         product.setName("Pringles Original");
         product.setPrice(BigDecimal.valueOf(16.29));
         product.setStockAmount(375L);

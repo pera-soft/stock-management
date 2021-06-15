@@ -14,7 +14,7 @@ import java.util.Date;
 public class DTOFactory {
 
     public CategoryDTO category() {
-        CategoryDTO category = new CategoryDTO();
+        var category = new CategoryDTO();
         category.setId(1L);
         category.setCreatedDate(new Date());
         category.setName("Snacks");
@@ -30,7 +30,7 @@ public class DTOFactory {
     }
 
     public SubCategoryDTO subCategory() {
-        SubCategoryDTO subCategory = new SubCategoryDTO();
+        var subCategory = new SubCategoryDTO();
         subCategory.setId(15L);
         subCategory.setName("Chips");
         subCategory.setCategory(category());
@@ -38,7 +38,7 @@ public class DTOFactory {
     }
 
     public ProductRequest productRequest() {
-        ProductRequest request = new ProductRequest();
+        var request = new ProductRequest();
         request.setName("Pringles Original");
         request.setPrice(BigDecimal.valueOf(16.29));
         request.setStockAmount(375L);
@@ -47,7 +47,7 @@ public class DTOFactory {
     }
 
     public ProductDTO product() {
-        ProductDTO product = new ProductDTO();
+        var product = new ProductDTO();
         product.setId(50L);
         product.setName("Pringles Original");
         product.setPrice(BigDecimal.valueOf(16.29));

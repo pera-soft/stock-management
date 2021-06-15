@@ -51,7 +51,7 @@ class ProductQueryServiceMockTest extends BaseUnitTest {
 
     @Test
     public void findProductsByCategoryId() {
-        when(repository.findBySubCategoryCategoryId(anyLong())).thenReturn(Optional.of(entityFactory.products()));
+        when(repository.findBySubCategoryCategoryId(anyLong())).thenReturn(entityFactory.products());
         List<ProductDTO> products = queryService.findProductsByCategoryId(anyLong());
         assertNotNull(products);
         assertThat(products).extracting("name").containsAnyOf("Pringles Original").doesNotContain("Doritos");
@@ -64,7 +64,7 @@ class ProductQueryServiceMockTest extends BaseUnitTest {
 
     @Test
     public void findProductsBySubCategoryId() {
-        when(repository.findBySubCategoryId(anyLong())).thenReturn(Optional.of(entityFactory.products()));
+        when(repository.findBySubCategoryId(anyLong())).thenReturn(entityFactory.products());
         List<ProductDTO> products = queryService.findProductsBySubCategoryId(anyLong());
         assertNotNull(products);
         assertThat(products).extracting("name").containsAnyOf("Pringles Original").doesNotContain("Doritos");
@@ -77,7 +77,7 @@ class ProductQueryServiceMockTest extends BaseUnitTest {
 
     @Test
     public void findProductsByName() {
-        when(repository.findByNameContainingIgnoreCase(anyString())).thenReturn(Optional.of(entityFactory.products()));
+        when(repository.findByNameContainingIgnoreCase(anyString())).thenReturn(entityFactory.products());
         List<ProductDTO> products = queryService.findProductsByName(anyString());
         assertNotNull(products);
         assertThat(products).extracting("name").containsAnyOf("Pringles Original").doesNotContain("Doritos");
@@ -90,7 +90,7 @@ class ProductQueryServiceMockTest extends BaseUnitTest {
 
     @Test
     public void findProductsByPrice() {
-        when(repository.findByPriceBetween(any(), any())).thenReturn(Optional.of(entityFactory.products()));
+        when(repository.findByPriceBetween(any(), any())).thenReturn(entityFactory.products());
         List<ProductDTO> products = queryService.findProductsByPrice(any(), any());
         assertNotNull(products);
         assertThat(products).extracting("name").containsAnyOf("Pringles Original").doesNotContain("Doritos");

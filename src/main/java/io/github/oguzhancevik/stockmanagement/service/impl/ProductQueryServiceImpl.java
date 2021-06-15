@@ -29,8 +29,8 @@ public class ProductQueryServiceImpl implements ProductQueryService {
     @Override
     @Transactional(readOnly = true)
     public List<ProductDTO> findProducts() {
-        List<Product> products = repository.findAll();
-        List<ProductDTO> dtoList = new ArrayList<>(products.size());
+        var products = repository.findAll();
+        var dtoList = new ArrayList<ProductDTO>(products.size());
         for (Product product : products) {
             dtoList.add(BaseMapper.INSTANCE.toDTO(product));
         }
@@ -48,9 +48,12 @@ public class ProductQueryServiceImpl implements ProductQueryService {
     @Override
     @Transactional(readOnly = true)
     public List<ProductDTO> findProductsByCategoryId(Long categoryId) {
-        List<Product> products = repository.findBySubCategoryCategoryId(categoryId)
-                .orElseThrow(() -> new BusinessValidationException(PRODUCT_NOT_FOUND));
-        List<ProductDTO> dtoList = new ArrayList<>(products.size());
+        List<Product> products = repository.findBySubCategoryCategoryId(categoryId);
+
+        if (products.isEmpty())
+            throw new BusinessValidationException(PRODUCT_NOT_FOUND);
+
+        var dtoList = new ArrayList<ProductDTO>(products.size());
         for (Product product : products) {
             dtoList.add(BaseMapper.INSTANCE.toDTO(product));
         }
@@ -60,9 +63,12 @@ public class ProductQueryServiceImpl implements ProductQueryService {
     @Override
     @Transactional(readOnly = true)
     public List<ProductDTO> findProductsBySubCategoryId(Long subCategoryId) {
-        List<Product> products = repository.findBySubCategoryId(subCategoryId)
-                .orElseThrow(() -> new BusinessValidationException(PRODUCT_NOT_FOUND));
-        List<ProductDTO> dtoList = new ArrayList<>(products.size());
+        var products = repository.findBySubCategoryId(subCategoryId);
+
+        if (products.isEmpty())
+            throw new BusinessValidationException(PRODUCT_NOT_FOUND);
+
+        var dtoList = new ArrayList<ProductDTO>(products.size());
         for (Product product : products) {
             dtoList.add(BaseMapper.INSTANCE.toDTO(product));
         }
@@ -72,9 +78,12 @@ public class ProductQueryServiceImpl implements ProductQueryService {
     @Override
     @Transactional(readOnly = true)
     public List<ProductDTO> findProductsByName(String name) {
-        List<Product> products = repository.findByNameContainingIgnoreCase(name)
-                .orElseThrow(() -> new BusinessValidationException(PRODUCT_NOT_FOUND));
-        List<ProductDTO> dtoList = new ArrayList<>(products.size());
+        var products = repository.findByNameContainingIgnoreCase(name);
+
+        if (products.isEmpty())
+            throw new BusinessValidationException(PRODUCT_NOT_FOUND);
+
+        var dtoList = new ArrayList<ProductDTO>(products.size());
         for (Product product : products) {
             dtoList.add(BaseMapper.INSTANCE.toDTO(product));
         }
@@ -84,9 +93,12 @@ public class ProductQueryServiceImpl implements ProductQueryService {
     @Override
     @Transactional(readOnly = true)
     public List<ProductDTO> findProductsByPrice(BigDecimal minPrice, BigDecimal maxPrice) {
-        List<Product> products = repository.findByPriceBetween(minPrice, maxPrice)
-                .orElseThrow(() -> new BusinessValidationException(PRODUCT_NOT_FOUND));
-        List<ProductDTO> dtoList = new ArrayList<>(products.size());
+        var products = repository.findByPriceBetween(minPrice, maxPrice);
+
+        if (products.isEmpty())
+            throw new BusinessValidationException(PRODUCT_NOT_FOUND);
+
+        var dtoList = new ArrayList<ProductDTO>(products.size());
         for (Product product : products) {
             dtoList.add(BaseMapper.INSTANCE.toDTO(product));
         }

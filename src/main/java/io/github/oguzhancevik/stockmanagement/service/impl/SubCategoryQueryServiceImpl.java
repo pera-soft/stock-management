@@ -28,8 +28,8 @@ public class SubCategoryQueryServiceImpl implements SubCategoryQueryService {
     @Override
     @Transactional(readOnly = true)
     public List<SubCategoryDTO> findSubCategories() {
-        List<SubCategory> subCategories = repository.findAll();
-        List<SubCategoryDTO> dtoList = new ArrayList<>(subCategories.size());
+        var subCategories = repository.findAll();
+        var dtoList = new ArrayList<SubCategoryDTO>(subCategories.size());
         for (SubCategory subCategory : subCategories) {
             dtoList.add(BaseMapper.INSTANCE.toDTO(subCategory));
         }

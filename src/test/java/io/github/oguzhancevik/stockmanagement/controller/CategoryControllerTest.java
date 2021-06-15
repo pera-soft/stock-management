@@ -23,9 +23,9 @@ class CategoryControllerTest extends BaseUnitTest {
 
     @BeforeEach
     public void setUp() {
-        CategoryQueryService queryService = mock(CategoryQueryService.class);
+        var queryService = mock(CategoryQueryService.class);
         commandService = mock(CategoryCommandService.class);
-        CategoryController controller = new CategoryController(queryService, commandService);
+        var controller = new CategoryController(queryService, commandService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 

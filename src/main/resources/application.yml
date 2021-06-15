@@ -2,6 +2,7 @@ server:
   port: 8080
 
 spring:
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -9,10 +10,16 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  sql:
+    init:
+      data-locations: classpath:/data.sql
+      schema-locations: classpath:/sheme.sql
+
   datasource:
     username: dbadmin
     password: 123
-    data: classpath:/data-h2.sql # initial datasource
+
   h2:
     console:
       enabled: true

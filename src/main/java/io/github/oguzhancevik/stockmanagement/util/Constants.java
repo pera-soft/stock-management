@@ -23,4 +23,8 @@ public class Constants {
         public static final String PATH_REGEX = "/api.*";
     }
 
+    public static final class CACHE {
+        public static final String STOCK_KEY = "stock" + "::";
+    }
+
 }

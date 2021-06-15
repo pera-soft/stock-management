@@ -25,7 +25,7 @@ public class BaseUnitTest {
     }
 
     public String toJson(Object object) throws JsonProcessingException {
-        ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        var objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
         return objectWriter.writeValueAsString(object);
     }
 

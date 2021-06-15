@@ -1,6 +1,6 @@
 package io.github.oguzhancevik.stockmanagement.handler;
 
-import io.github.oguzhancevik.stockmanagement.model.exception.ExceptionResponse;
+import io.github.oguzhancevik.stockmanagement.model.response.ApiResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {RuntimeException.class})
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
-        return handleExceptionInternal(ex, new ExceptionResponse(ex.getMessage()), new HttpHeaders(), HttpStatus.CONFLICT, request);
+        return handleExceptionInternal(ex, new ApiResponse(ex.getMessage()), new HttpHeaders(), HttpStatus.CONFLICT, request);
     }
 
 }

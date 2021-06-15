@@ -31,8 +31,8 @@ public class SubCategoryCommandServiceImpl implements SubCategoryCommandService 
     @Override
     @Transactional
     public SubCategoryDTO create(SubCategoryRequest request) {
-        SubCategory subCategory = new SubCategory(request.getName());
-        Category category = categoryRepository.findById(request.getCategoryId())
+        var subCategory = new SubCategory(request.getName());
+        var category = categoryRepository.findById(request.getCategoryId())
                 .orElseThrow(() -> new BusinessValidationException(CATEGORY_NOT_FOUND));
         subCategory.setCategory(category);
         subCategoryRepository.save(subCategory);
