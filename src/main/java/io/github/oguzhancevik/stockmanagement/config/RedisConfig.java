@@ -1,5 +1,6 @@
 package io.github.oguzhancevik.stockmanagement.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,7 @@ import org.springframework.data.redis.serializer.GenericToStringSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
+@Slf4j
 public class RedisConfig {
 
     @Value("${spring.redis.host}")
@@ -21,6 +23,7 @@ public class RedisConfig {
 
     @Bean
     public RedisConnectionFactory connectionFactory() {
+        log.info("redisHost: " + redisHost + " / " + "redisPort: " + redisPort);
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(redisHost, redisPort);
         return new JedisConnectionFactory(redisStandaloneConfiguration);
     }
