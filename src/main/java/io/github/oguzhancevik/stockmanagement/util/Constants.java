@@ -29,8 +29,4 @@ public class Constants {
         public static final String STOCK_KEY = STOCK + SEPARATOR;
     }
 
-    public static final class PROFILE {
-        public static final String LOCAL = "local";
-    }
-
 }
