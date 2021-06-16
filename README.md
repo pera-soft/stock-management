@@ -15,12 +15,13 @@
 * Spring Boot
 * Maven
 * Hibernate
+* Mapstruct  
+* SLF4J
+* Junit
 * Redis
 * Docker
 * Swagger
 * H2
-* Junit
-* SLF4J  
 * Factory Pattern
 * CQRS Pattern
 
