@@ -6,12 +6,15 @@ import io.github.oguzhancevik.stockmanagement.model.request.ProductRequest;
 import io.github.oguzhancevik.stockmanagement.model.response.ProductDTO;
 import io.github.oguzhancevik.stockmanagement.service.ProductCommandService;
 import io.github.oguzhancevik.stockmanagement.service.ProductQueryService;
+import io.github.oguzhancevik.stockmanagement.util.Constants;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ActiveProfiles(Constants.PROFILE.LOCAL)
 public class ProductCommandServiceIntegrationTest extends BaseUnitTest {
 
     @Autowired
