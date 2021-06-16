@@ -24,7 +24,9 @@ public class Constants {
     }
 
     public static final class CACHE {
-        public static final String STOCK_KEY = "stock" + "::";
+        public static final String STOCK = "stock";
+        public static final String SEPARATOR = "::";
+        public static final String STOCK_KEY = STOCK + SEPARATOR;
     }
 
 }

@@ -9,7 +9,9 @@ import io.github.oguzhancevik.stockmanagement.repository.ProductRepository;
 import io.github.oguzhancevik.stockmanagement.repository.SubCategoryRepository;
 import io.github.oguzhancevik.stockmanagement.service.ProductCommandService;
 import io.github.oguzhancevik.stockmanagement.util.BaseMapper;
+import io.github.oguzhancevik.stockmanagement.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,6 +43,7 @@ public class ProductCommandServiceImpl implements ProductCommandService {
 
     @Override
     @Transactional
+    @CacheEvict(value = Constants.CACHE.STOCK, key = "#productId")
     public ProductDTO update(Long productId, ProductRequest request) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new BusinessValidationException(PRODUCT_NOT_FOUND));
@@ -53,6 +56,7 @@ public class ProductCommandServiceImpl implements ProductCommandService {
 
     @Override
     @Transactional
+    @CacheEvict(value = Constants.CACHE.STOCK, key = "#productId")
     public void deleteById(Long productId) {
         productRepository.deleteById(productId);
     }

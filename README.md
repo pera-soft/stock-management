@@ -24,6 +24,14 @@
 * Factory Pattern
 * CQRS Pattern
 
+### Prerequisites :warning:
+| Tech   | Version |
+|--------|---------|
+| Java   | 11.0.11 |
+| Maven  | 3.8.1   |
+| Docker | 20.10.6 |
+| Redis  | 3.2.100 |
+
 ### Build & Run :rocket:
 
 ###### Docker
@@ -32,9 +40,9 @@
 
 ###### Backend
 
-``` mvn clean install ```
+``` mvn clean install -Dspring.profiles.active=local ```
 
-``` mvn --projects io.github.oguzhancevik:stock-management spring-boot:run ```
+``` mvn --projects io.github.oguzhancevik:stock-management spring-boot:run -Dspring-boot.run.arguments="--spring.profiles.active=local" ```
 
 ### Design :art:
 ![DesignPhoto](static/chart.png)

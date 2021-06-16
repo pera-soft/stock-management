@@ -23,3 +23,13 @@ spring:
   h2:
     console:
       enabled: true
+
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+
+  redis:
+    host: redis
+    port: 6379
+    ssl: false

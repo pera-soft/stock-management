@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      data-locations: classpath:/data.sql
+      schema-locations: classpath:/sheme.sql
+
+  datasource:
+    username: dbadmin
+    password: 123
+
+  h2:
+    console:
+      enabled: true
+
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+
+  redis:
+    host: localhost
+    port: 6379
+    ssl: false
+
