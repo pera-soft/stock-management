@@ -5,7 +5,6 @@ import io.github.oguzhancevik.stockmanagement.model.entity.Product;
 import io.github.oguzhancevik.stockmanagement.model.entity.SubCategory;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
