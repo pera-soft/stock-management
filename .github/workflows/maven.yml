@@ -21,10 +21,11 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml 
-    - uses: shogo82148/actions-setup-redis@v1
+    - name: Set up Redis    
+      uses: shogo82148/actions-setup-redis@v1
       with:
         redis-version: '6.x'
-    - run: redis-cli ping
+    - run: redis-cli ping   
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
       
