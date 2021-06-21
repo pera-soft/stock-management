@@ -32,6 +32,19 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
         this.redisTemplate = redisTemplate;
     }
 
+    /**
+     *
+     * Redis Transactions via Spring Data Redis
+     *
+     * WATCH
+     * // Read. May UNWATCH and abandon at any time before EXEC
+     * // if the desired updates are already done.
+     * MULTI
+     * // Write based on the values read. May DISCARD at any time
+     * // before EXEC.
+     * EXEC
+     *
+     */
     @Override
     public ApiResponse shopping(ShoppingRequest request) {
         redisTemplate.execute(new SessionCallback() {
